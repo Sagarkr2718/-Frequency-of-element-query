@@ -1,0 +1,30 @@
+import java.util.*;
+public class Solution {
+    public int[] solve(int[] A, int[] B) {
+    HashMap<Integer,Integer> map = new HashMap<>();
+    for(int i=0;i<A.length;i++){
+        if(map.containsKey(A[i])==false){
+            map.put(A[i],1);
+        }
+        else{
+            int temp =map.get(A[i]);
+            temp++;
+            map.put(A[i],temp);
+        }
+    }
+    int C[]=new int[B.length];
+    for(int i=0; i<B.length ; i++){
+        int element = B[i];
+        if(map.containsKey(element)==true){
+            C[i]=map.get(element);
+        }
+        else{
+            C[i]=0;
+        }
+
+
+    }
+    return C;
+    }
+
+}
